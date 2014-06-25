@@ -1,11 +1,13 @@
 # README #
 
-ShipGame by Brandon Keyes
+### INFO ###
 
-### What is this repository for? ###
+* Working Title: ShipGame
+* Author: Brandon Keyes
 
-* Version control for ShipGame
-* v1.0
+### VERSION ###
+
+* v1.0.0
 
 ### How do I get set up? ###
 
