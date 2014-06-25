@@ -1,0 +1,11 @@
+syntax: glob
+Library
+Temp
+Build
+Demos
+*.pidb
+*.sln
+*.userprefs
+*.csprog
+*.orig
+*.apk
