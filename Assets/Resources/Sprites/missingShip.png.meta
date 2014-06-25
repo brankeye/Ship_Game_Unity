@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9f7712bdb01b6b41843534fa88b1d3e
+guid: 0be5d386d4f367e4c9190e1a4ee8f718
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -24,13 +24,13 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: 1
+    aniso: -1
     mipBias: -1
-    wrapMode: 1
+    wrapMode: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -41,36 +41,6 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites:
-    - name: playButton_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 190
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playButton_1
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 0
-        width: 190
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playButton_2
-      rect:
-        serializedVersion: 2
-        x: 380
-        y: 0
-        width: 190
-        height: 49
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+    sprites: []
   spritePackingTag: 
   userData: 

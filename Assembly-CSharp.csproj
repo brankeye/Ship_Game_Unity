@@ -48,10 +48,13 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\Block\ChangeBlockColor.cs" />
+     <Compile Include="Assets\Scripts\CreateDefaultShip.cs" />
      <Compile Include="Assets\Scripts\DrawLine.cs" />
      <Compile Include="Assets\Scripts\FollowOtherObject.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Button.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\ChangeScenes.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buttons\DisableEditButton.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buttons\DisablePlayButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\SwitchScreens.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Toggle.cs" />
      <Compile Include="Assets\Scripts\GUI\FitToScreen.cs" />

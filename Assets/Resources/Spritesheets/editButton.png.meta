@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9f7712bdb01b6b41843534fa88b1d3e
+guid: b4fa068712614a84e9fd2314526ef8da
 TextureImporter:
   serializedVersion: 2
   mipmaps:
@@ -42,7 +42,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: playButton_0
+    - name: editButton_0
       rect:
         serializedVersion: 2
         x: 0
@@ -52,7 +52,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playButton_1
+    - name: editButton_1
       rect:
         serializedVersion: 2
         x: 190
@@ -62,7 +62,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: playButton_2
+    - name: editButton_2
       rect:
         serializedVersion: 2
         x: 380
