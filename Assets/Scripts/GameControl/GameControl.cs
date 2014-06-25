@@ -9,7 +9,8 @@ public class GameControl : MonoBehaviour {
   public static GameControl control;
   public int experience = 0;
 
-  public int sound, music;
+  public bool soundEnabled = true;
+  public bool musicEnabled = true;
 
   private string savePath;
 
@@ -23,11 +24,6 @@ public class GameControl : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
-
-  public void Update() {
-    sound = PlayerPrefs.GetInt("SoundEnabled");
-    music = PlayerPrefs.GetInt("MusicEnabled");
-  }
 
   void OnEnable() {
     // Loading

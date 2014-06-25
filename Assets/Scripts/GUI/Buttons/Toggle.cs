@@ -8,6 +8,10 @@ public class Toggle : MonoBehaviour {
 	private SpriteRenderer spriteRenderer;
 
 	private bool toggleSelected = false;
+  public bool ToggleSelected {
+    get { return toggleSelected;  }
+    set { toggleSelected = value; }
+  }
 
 	private bool toggleActive = false;
   public bool ToggleActive {
