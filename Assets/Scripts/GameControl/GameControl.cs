@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
@@ -9,13 +8,10 @@ public class GameControl : MonoBehaviour {
 
   public static GameControl control;
   public int experience = 0;
-  public int numberOfShips = 0;
+  public int numberOfShips = 1;
 
   public bool soundEnabled = true;
   public bool musicEnabled = true;
-
-  public Ship activeShip;
-  public List<Ship> shipList;
 
   private string savePath;
 
@@ -28,7 +24,8 @@ public class GameControl : MonoBehaviour {
 		} else if (control != this) {
 			Destroy (gameObject);
 		}
-    numberOfShips = 0;
+
+    numberOfShips = 1;
 	}
 
   void OnEnable() {
@@ -39,10 +36,6 @@ public class GameControl : MonoBehaviour {
   void OnDisable() {
     // Saving
     Save();
-  }
-
-  void Start() {
-    shipList = new List<Ship>();
   }
 
   public void Save() {
@@ -67,7 +60,6 @@ public class GameControl : MonoBehaviour {
 
   private void setData(PlayerData tempData) {
     tempData.experience = experience;
-    tempData.numberOfShips = numberOfShips;
   }
 
   private void acquireData(PlayerData tempData) {
@@ -77,6 +69,5 @@ public class GameControl : MonoBehaviour {
 
 [Serializable]
 class PlayerData {
-  public int numberOfShips;
   public int experience;
 }
