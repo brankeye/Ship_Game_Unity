@@ -48,11 +48,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
      <Compile Include="Assets\Scripts\Block\ChangeBlockColor.cs" />
-     <Compile Include="Assets\Scripts\CreateDefaultShip.cs" />
+     <Compile Include="Assets\Scripts\Block\SelectColor.cs" />
      <Compile Include="Assets\Scripts\DrawLine.cs" />
      <Compile Include="Assets\Scripts\FollowOtherObject.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Button.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\ChangeScenes.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buttons\CreateDefaultShip.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\DisableEditButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\DisablePlayButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\SwitchScreens.cs" />
@@ -63,6 +64,8 @@
      <Compile Include="Assets\Scripts\GameControl\MuteSound.cs" />
      <Compile Include="Assets\Scripts\MoveObjectWithMouse.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Ship\CreateShip.cs" />
+     <Compile Include="Assets\Scripts\Ship\Ship.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
