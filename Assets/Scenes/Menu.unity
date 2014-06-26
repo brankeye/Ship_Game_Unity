@@ -187,7 +187,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 995415232}
-  m_RootOrder: 3
+  m_RootOrder: 0
 --- !u!114 &89677754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 995415232}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &399849211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,9 +639,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1426164734}
   - {fileID: 638121302}
   - {fileID: 580331277}
-  - {fileID: 1426164734}
   m_Father: {fileID: 554044120}
   m_RootOrder: 0
 --- !u!1 &554044119
@@ -705,7 +705,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 428629605}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &580331278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +877,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 428629605}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &638121303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,10 +1127,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 89677753}
   - {fileID: 1457143667}
   - {fileID: 399849210}
   - {fileID: 1099963599}
-  - {fileID: 89677753}
   m_Father: {fileID: 554044120}
   m_RootOrder: 1
 --- !u!1 &1033364224
@@ -1254,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experience: 0
-  numberOfShips: 0
+  numberOfShips: 1
   soundEnabled: 1
   musicEnabled: 1
 --- !u!4 &1036277767
@@ -1300,7 +1300,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 995415232}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1099963600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,7 +1790,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 428629605}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!114 &1426164735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1964,7 +1964,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 995415232}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1457143668
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class Button : MonoBehaviour {
 			// if the user touched the button, change the button state accordingly
 			if(hit != null && hit.collider != null) {
 				Button theButton = hit.collider.gameObject.GetComponent<Button>();
-				if(!theButton.ButtonDisabled && theButton != null && !theButton.ButtonActive && theButton.gameObject.transform.parent.position.z == 0.0f) {
+        if(theButton != null && !theButton.ButtonDisabled && !theButton.ButtonActive && theButton.gameObject.transform.parent.position.z == 0.0f) {
 					theButton.setButton(true);
           theButton.ButtonActive = true;
 				}

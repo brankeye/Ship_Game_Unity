@@ -8,7 +8,7 @@ public class GameControl : MonoBehaviour {
 
   public static GameControl control;
   public int experience = 0;
-  public int numberOfShips = 0;
+  public int numberOfShips = 1;
 
   public bool soundEnabled = true;
   public bool musicEnabled = true;
@@ -24,6 +24,8 @@ public class GameControl : MonoBehaviour {
 		} else if (control != this) {
 			Destroy (gameObject);
 		}
+
+    numberOfShips = 1;
 	}
 
   void OnEnable() {
