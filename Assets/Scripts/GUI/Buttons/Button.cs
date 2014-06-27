@@ -70,26 +70,27 @@ public class Button : MonoBehaviour {
 				buttonClicked = true; // button has been clicked
 			}
       buttonActive = false;
-      if(buttonDisabled) {
-        disableButton();
-      }
 		}
 	}
 
   public void disableButton() {
+    buttonDisabled = true;
     spriteRenderer.sprite = disabledSprite;
+  }
+
+  public void enableButton() {
+    buttonDisabled = false;
+    spriteRenderer.sprite = inactiveSprite;
   }
 
 	// change button state to down
 	public void setButton(bool buttonActive) {
-    if (!buttonDisabled) {
-      if (!activeButtonSprite && buttonActive) {
-        activeButtonSprite = true;
-        spriteRenderer.sprite = activeSprite;
-      } else if (activeButtonSprite && !buttonActive) {
-        activeButtonSprite = false;
-        spriteRenderer.sprite = inactiveSprite;
-      }
+    if (!activeButtonSprite && buttonActive) {
+      activeButtonSprite = true;
+      spriteRenderer.sprite = activeSprite;
+    } else if (activeButtonSprite && !buttonActive) {
+      activeButtonSprite = false;
+      spriteRenderer.sprite = inactiveSprite;
     }
 
 		buttonDown = buttonActive;

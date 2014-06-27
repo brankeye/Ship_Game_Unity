@@ -6,6 +6,7 @@ public class Ship {
   public int numberOfBlocks;
   public List<Vector3> vectorList;
   public List<Color>   colorList;
+  public bool created = false;
 
   public Ship() {
     vectorList = new List<Vector3>();
@@ -22,5 +23,6 @@ public class Ship {
   public void AddBlock(Vector3 blockPoint, Color blockColor) {
     vectorList.Add(blockPoint);
     colorList.Add(blockColor);
+    numberOfBlocks++;
   }
 }
