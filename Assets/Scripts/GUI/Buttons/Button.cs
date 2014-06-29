@@ -11,7 +11,8 @@ public class Button : MonoBehaviour {
 	private SpriteRenderer spriteRenderer;
 	private bool buttonDown = false;
 	private bool activeButtonSprite = false;
-	private Camera mainCamera;
+  private GameObject mainCamera;
+	private Camera theCamera;
 
 	private bool buttonClicked = false;
 	public bool ButtonClicked {
@@ -28,13 +29,14 @@ public class Button : MonoBehaviour {
   public bool ButtonDisabled {
     get { return buttonDisabled; }
     set { buttonDisabled = value; }
-  }
+  } 
 
 	void Start() {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		spriteRenderer.sprite = inactiveSprite;
 		// need the camera to get screen point of raycast
-		mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+    mainCamera = GameObject.FindWithTag("MainCamera");
+		theCamera = mainCamera.GetComponent<Camera>();
 	}
 	
 	// Update is called once per frame
@@ -50,11 +52,11 @@ public class Button : MonoBehaviour {
 				rayPosition = Input.mousePosition;
 			}
      
-			Ray ray = mainCamera.ScreenPointToRay(rayPosition);
+			Ray ray = theCamera.ScreenPointToRay(rayPosition);
 			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
 			// if the user touched the button, change the button state accordingly
-			if(hit != null && hit.collider != null) {
+			if(hit.collider != null) {
 				Button theButton = hit.collider.gameObject.GetComponent<Button>();
         if(theButton != null && !theButton.ButtonDisabled && !theButton.ButtonActive && theButton.gameObject.transform.parent.position.z == 0.0f) {
 					theButton.setButton(true);

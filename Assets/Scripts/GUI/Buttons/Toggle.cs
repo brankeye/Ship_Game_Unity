@@ -25,13 +25,14 @@ public class Toggle : MonoBehaviour {
     set { toggleClicked = value; }
   }
 
-	public GameObject mainCamera;
-  private Camera camera;
+	private GameObject mainCamera;
+  private Camera theCamera; 
 	
 	void Start() {
 		spriteRenderer = GetComponent<SpriteRenderer> ();
 		// need the camera to get screen point of raycast
-		camera = mainCamera.GetComponent<Camera>();
+    mainCamera = GameObject.FindWithTag("MainCamera");
+		theCamera = mainCamera.GetComponent<Camera>();
 	}
 
 	void Update() {
@@ -42,13 +43,13 @@ public class Toggle : MonoBehaviour {
 			} else {
 				rayPosition = Input.mousePosition;
 			}
-			Ray ray = camera.ScreenPointToRay(rayPosition);
+			Ray ray = theCamera.ScreenPointToRay(rayPosition);
 			RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
       toggleClicked = false;
 
 			// if the user touched the button, change the button state accordingly
-			if(hit != null && hit.collider != null) {
+			if(hit.collider != null) {
 				Toggle theToggle = hit.collider.gameObject.GetComponent<Toggle>();
         if(theToggle != null && !theToggle.toggleActive && theToggle.gameObject.transform.parent.position.z == 0.0f) {
 					theToggle.setToggle();

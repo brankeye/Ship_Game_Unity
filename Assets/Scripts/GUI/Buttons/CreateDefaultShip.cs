@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class CreateDefaultShip : MonoBehaviour {
+
   SelectColor selectColor;
-  Button button;
 
   void Start() {
     selectColor = GetComponent<SelectColor>();
-    button = GetComponent<Button>();
   }
 
   void Update() {
