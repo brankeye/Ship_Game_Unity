@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\GUI\Buttons\CreateDefaultShip.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\DisableEditButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\DisablePlayButton.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buttons\ShipScrollButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\SwitchScreens.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Toggle.cs" />
      <Compile Include="Assets\Scripts\GUI\FitToScreen.cs" />
@@ -64,6 +65,7 @@
      <Compile Include="Assets\Scripts\GameControl\MuteSound.cs" />
      <Compile Include="Assets\Scripts\MoveObjectWithMouse.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Ship\CreateNewShip.cs" />
      <Compile Include="Assets\Scripts\Ship\DisplayShips.cs" />
      <Compile Include="Assets\Scripts\Ship\Ship.cs" />
   </ItemGroup>

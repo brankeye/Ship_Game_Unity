@@ -8,6 +8,7 @@ using System.IO;
 public class GameControl : MonoBehaviour {
 
   public static GameControl control;
+  public int currentShipIndex = 0;
   public int experience = 0;
   public int numberOfShips = 0;
 

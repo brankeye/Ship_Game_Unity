@@ -3,6 +3,9 @@ using System.Collections;
 
 public class DisplayShips : MonoBehaviour {
 
+  private GameObject newShip;
+  private int newShipIndex = -1;
+
 	// Use this for initialization
 	void Start () {
     gameObject.AddComponent("SpriteRenderer");
@@ -20,14 +23,20 @@ public class DisplayShips : MonoBehaviour {
       GetComponent<SpriteRenderer>().sprite = missingSprite;
     } else {
       GetComponent<SpriteRenderer>().enabled = false;
-      if(GameControl.control.shipList[0].created == false) {
-        CreateShip(GameControl.control.shipList[0], "Ventura");
+      int shipIndex = GameControl.control.currentShipIndex;
+      if(GameControl.control.shipList[shipIndex].created == false) {
+        if(newShip != null) {
+          GameControl.control.shipList[newShipIndex].created = false;
+          GameObject.Destroy(newShip);
+        }
+        CreateShip(GameControl.control.shipList[shipIndex], "Ventura");
+        newShipIndex = shipIndex;
       }
     }
   }
 
   public void CreateShip(Ship ship, string name) {
-    GameObject newShip = new GameObject();
+    newShip = new GameObject();
     newShip.name = name;
     newShip.transform.parent = gameObject.transform;
 
