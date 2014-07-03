@@ -4,7 +4,8 @@ using System.Collections;
 public class DisplayShips : MonoBehaviour {
 
   private GameObject newShip;
-  private int newShipIndex = -1;
+  private int newShipIndex = 0;
+  private bool created = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,12 +25,17 @@ public class DisplayShips : MonoBehaviour {
     } else {
       GetComponent<SpriteRenderer>().enabled = false;
       int shipIndex = GameControl.control.currentShipIndex;
-      if(GameControl.control.shipList[shipIndex].created == false) {
+
+      if(newShipIndex != GameControl.control.currentShipIndex) {
+        created = false;
+      }
+
+      if(created == false) {
         if(newShip != null) {
-          GameControl.control.shipList[newShipIndex].created = false;
           GameObject.Destroy(newShip);
         }
         CreateShip(GameControl.control.shipList[shipIndex], "Ventura");
+        created = true;
         newShipIndex = shipIndex;
       }
     }
@@ -44,14 +50,11 @@ public class DisplayShips : MonoBehaviour {
     
     for(int i = 0; i < ship.numberOfBlocks; i++) {
       GameObject newBlock = Instantiate(Resources.Load("Block")) as GameObject;
-      newBlock.transform.position = ship.vectorList[i];
-      newBlock.transform.localPosition = ship.vectorList[i];
-      newBlock.GetComponent<MeshRenderer>().material.color = ship.colorList[i];
+      newBlock.transform.position = ship.vectorList[i].Vector3_S;
+      newBlock.GetComponent<MeshRenderer>().material.color = ship.colorList[i].Color_S;
       newBlock.transform.parent = newShip.transform;
 
       newBlock.transform.position = new Vector3(0, 0, transform.parent.position.z - 1);
     }
-    
-    ship.created = true;
   }
 }

@@ -19,14 +19,12 @@ public class CreateNewShip : MonoBehaviour {
     
     for(int i = 0; i < ship.numberOfBlocks; i++) {
       GameObject newBlock = Instantiate(Resources.Load("Block")) as GameObject;
-      newBlock.transform.position = ship.vectorList[i];
-      newBlock.transform.localPosition = ship.vectorList[i];
-      newBlock.GetComponent<MeshRenderer>().material.color = ship.colorList[i];
+      newBlock.transform.position = ship.vectorList[i].Vector3_S;
+      newBlock.GetComponent<MeshRenderer>().material.color = ship.colorList[i].Color_S;
+      newBlock.AddComponent<BoxCollider2D>();
       newBlock.transform.parent = newShip.transform;
       
       newBlock.transform.position = new Vector3(0, 0, transform.parent.position.z - 1);
     }
-    
-    ship.created = true;
   }
 }

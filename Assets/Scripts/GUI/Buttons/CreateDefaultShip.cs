@@ -17,6 +17,7 @@ public class CreateDefaultShip : MonoBehaviour {
 
       GameControl.control.shipList.Add(newDefaultShip);
       GameControl.control.numberOfShips++;
+      GameControl.control.currentShipIndex = GameControl.control.numberOfShips - 1;
     }
   }
 }
