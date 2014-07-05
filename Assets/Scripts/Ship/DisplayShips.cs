@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DisplayShips : MonoBehaviour {
 
+  public GameObject deleteShipButton;
   private GameObject newShip;
   private int newShipIndex = 0;
   private bool created = false;
@@ -20,19 +21,23 @@ public class DisplayShips : MonoBehaviour {
 
   void handleDisplayShips() {
     if(GameControl.control.numberOfShips <= 0) {
+      if(newShip != null) {
+        Destroy(newShip);
+      }
       Sprite missingSprite = Resources.Load("Sprites/missingShip", typeof(Sprite)) as Sprite;
       GetComponent<SpriteRenderer>().sprite = missingSprite;
+      created = false;
     } else {
-      GetComponent<SpriteRenderer>().enabled = false;
+      GetComponent<SpriteRenderer>().sprite = null;
       int shipIndex = GameControl.control.currentShipIndex;
 
-      if(newShipIndex != GameControl.control.currentShipIndex) {
+      if(newShipIndex != shipIndex || deleteShipButton.GetComponent<DeleteShipButton>().shipDeleted) {
         created = false;
       }
 
       if(created == false) {
         if(newShip != null) {
-          GameObject.Destroy(newShip);
+          Destroy(newShip);
         }
         CreateShip(GameControl.control.shipList[shipIndex], "Ventura");
         created = true;

@@ -14,7 +14,7 @@ public class GameControl : MonoBehaviour {
 
   public bool soundEnabled = true;
   public bool musicEnabled = true;
-  
+
   public List<Ship> shipList;
 
   public string savePath;
@@ -28,7 +28,6 @@ public class GameControl : MonoBehaviour {
 		} else if (control != this) {
 			Destroy (gameObject);
 		}
-    numberOfShips = 0;
 	}
 
   void OnEnable() {
