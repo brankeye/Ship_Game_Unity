@@ -60,9 +60,9 @@
      <Compile Include="Assets\Scripts\GUI\Buttons\DisablePlayButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\OkButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\ShipScrollButton.cs" />
-     <Compile Include="Assets\Scripts\GUI\Buttons\SwitchScreens.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Toggle.cs" />
      <Compile Include="Assets\Scripts\GUI\FitToScreen.cs" />
+     <Compile Include="Assets\Scripts\GUI\SwitchScreens.cs" />
      <Compile Include="Assets\Scripts\GameControl\GameControl.cs" />
      <Compile Include="Assets\Scripts\GameControl\MuteMusic.cs" />
      <Compile Include="Assets\Scripts\GameControl\MuteSound.cs" />

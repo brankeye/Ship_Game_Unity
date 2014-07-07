@@ -28,12 +28,8 @@ public class EditShip : MonoBehaviour {
         }
 
         theShip = new Ship(GameControl.control.shipList [GameControl.control.currentShipIndex]);
-        editedShip = shipFunctions.CreateDisplayShip(theShip, "Ventura");
+        editedShip = shipFunctions.CreateShip(theShip, "Ventura");
         editedShip.transform.parent = transform;
-
-        editedShip.transform.position = new Vector3(editedShip.transform.position.x,
-                                                    editedShip.transform.position.y,
-                                                    transform.parent.position.z - 1);
 
         shipInitiated = true;
       }
@@ -71,12 +67,8 @@ public class EditShip : MonoBehaviour {
         if(editedShip != null) {
           Destroy(editedShip);
         }
-        editedShip = shipFunctions.CreateDisplayShip(theShip, "Ventura");
+        editedShip = shipFunctions.CreateShip(theShip, "Ventura");
         editedShip.transform.parent = transform;
-        
-        editedShip.transform.position = new Vector3(editedShip.transform.position.x,
-                                                    editedShip.transform.position.y,
-                                                    transform.parent.position.z - 1);
 
         shipEdited = false;
       }

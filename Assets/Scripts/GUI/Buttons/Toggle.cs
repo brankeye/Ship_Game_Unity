@@ -36,6 +36,8 @@ public class Toggle : MonoBehaviour {
 	}
 
 	void Update() {
+    toggleClicked = false;
+    toggleActive = false;
 		if(Input.touchCount > 0 || Input.GetMouseButton(0)) { // mobile: if there are any touches get the raycast of the first touch
       Vector2 rayPosition;
 		  if(Input.touchCount > 0) {
@@ -51,16 +53,13 @@ public class Toggle : MonoBehaviour {
 			// if the user touched the button, change the button state accordingly
 			if(hit.collider != null) {
 				Toggle theToggle = hit.collider.gameObject.GetComponent<Toggle>();
-        if(theToggle != null && !theToggle.toggleActive && theToggle.gameObject.transform.parent.position.z == 0.0f) {
+        if(theToggle != null && !theToggle.ToggleActive) {
 					theToggle.setToggle();
-          theToggle.toggleActive = true;
-          theToggle.toggleClicked = true;
+          theToggle.ToggleActive = true;
+          theToggle.ToggleClicked = true;
 				}
 			}
-		} else {
-      toggleClicked = false;
-      toggleActive = false;
-    }
+		}
 	}
 	
 	// change button state to down

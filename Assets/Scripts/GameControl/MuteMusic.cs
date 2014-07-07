@@ -12,10 +12,6 @@ public class MuteMusic : MonoBehaviour {
   void Update () {
     if (toggle.ToggleClicked) {
       GameControl.control.musicEnabled = !GameControl.control.musicEnabled;
-    } else {
-      if(toggle.ToggleSelected == GameControl.control.musicEnabled) {
-        toggle.setToggle();
-      }
     }
   }
 }

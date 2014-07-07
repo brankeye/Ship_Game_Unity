@@ -12,8 +12,6 @@ public class MuteSound : MonoBehaviour {
 	void Update () {
 	  if(toggle.ToggleClicked) {
       GameControl.control.soundEnabled = !GameControl.control.soundEnabled;
-    } else if(toggle.ToggleSelected == GameControl.control.soundEnabled) {
-      toggle.setToggle();
     }
 	}
 }
