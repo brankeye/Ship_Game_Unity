@@ -11,8 +11,7 @@ public class CreateDefaultShip : MonoBehaviour {
 
   void Update() {
     if(selectColor.getColor) {
-      Ship newDefaultShip = new Ship();
-      newDefaultShip.AddBlock(new Vector3(0,0,0), selectColor.newColor);
+      Ship newDefaultShip = new Ship(new Vector3(0,0,0), selectColor.newColor);
       selectColor.getColor = false;
 
       GameControl.control.shipList.Add(newDefaultShip);

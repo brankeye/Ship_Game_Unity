@@ -52,11 +52,13 @@
      <Compile Include="Assets\Scripts\DrawLine.cs" />
      <Compile Include="Assets\Scripts\FollowOtherObject.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Button.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buttons\CancelButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\ChangeScenes.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\CreateDefaultShip.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\DeleteShipButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\DisableEditButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\DisablePlayButton.cs" />
+     <Compile Include="Assets\Scripts\GUI\Buttons\OkButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\ShipScrollButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\SwitchScreens.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Toggle.cs" />
@@ -66,9 +68,12 @@
      <Compile Include="Assets\Scripts\GameControl\MuteSound.cs" />
      <Compile Include="Assets\Scripts\MoveObjectWithMouse.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Scripts\Ship\CreateNewShip.cs" />
-     <Compile Include="Assets\Scripts\Ship\DisplayShips.cs" />
+     <Compile Include="Assets\Scripts\Ship\Block.cs" />
+     <Compile Include="Assets\Scripts\Ship\CreatePlayingShip.cs" />
+     <Compile Include="Assets\Scripts\Ship\DisplayShip.cs" />
+     <Compile Include="Assets\Scripts\Ship\EditShip.cs" />
      <Compile Include="Assets\Scripts\Ship\Ship.cs" />
+     <Compile Include="Assets\Scripts\Ship\ShipFunctions.cs" />
      <Compile Include="Assets\Scripts\Utility\Serializables.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

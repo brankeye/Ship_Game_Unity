@@ -4,8 +4,7 @@ using System.Collections;
 public class DisablePlayButton : MonoBehaviour {
 
   Button button;
-
-	// Use this for initialization
+  
 	void Start () {
     button = GetComponent<Button>();
 
