@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
-     <Compile Include="Assets\Scripts\Block\ChangeBlockColor.cs" />
      <Compile Include="Assets\Scripts\Block\SelectColor.cs" />
      <Compile Include="Assets\Scripts\DrawLine.cs" />
      <Compile Include="Assets\Scripts\FollowOtherObject.cs" />

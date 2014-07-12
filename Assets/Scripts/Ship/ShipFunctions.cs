@@ -10,19 +10,14 @@ public class ShipFunctions : MonoBehaviour {
     for(int i = 0; i < ship.numberOfBlocks; i++) {
       GameObject newBlock = Instantiate(Resources.Load("Block")) as GameObject;
       newBlock.transform.position = ship.vectorList[i].Vector3_S;
-      newBlock.GetComponent<MeshRenderer>().material.color = ship.colorList[i].Color_S;
-      newBlock.AddComponent<BoxCollider2D>();
+      newBlock.GetComponent<SpriteRenderer>().color = ship.colorList[i].Color_S;
       newBlock.transform.parent = newShip.transform;
     }
 
-    float scaleMod = 0.0f;
+    float scaleMod = 1.0f;
+    /*
     Vector2 size = ship.GetDimensions();
-    
-    if(size.x >= size.y) {
-      scaleMod = 1.0f / size.x;
-    } else if(size.y > size.x) {
-      scaleMod = 1.0f / size.y;
-    }
+    scaleMod = 1 / size.magnitude;*/
     
     newShip.transform.localScale = new Vector3(scaleMod,
                                                scaleMod,

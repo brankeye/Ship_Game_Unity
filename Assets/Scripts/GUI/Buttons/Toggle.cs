@@ -53,7 +53,7 @@ public class Toggle : MonoBehaviour {
 			// if the user touched the button, change the button state accordingly
 			if(hit.collider != null) {
 				Toggle theToggle = hit.collider.gameObject.GetComponent<Toggle>();
-        if(theToggle != null && !theToggle.ToggleActive) {
+        if(theToggle != null && theToggle.transform == gameObject.transform && !theToggle.ToggleActive) {
 					theToggle.setToggle();
           theToggle.ToggleActive = true;
           theToggle.ToggleClicked = true;
