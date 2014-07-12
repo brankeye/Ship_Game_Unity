@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// Name: Toggle.cs
+// Purpose: behave like a radio button
+
+using UnityEngine;
 using System.Collections;
 
 public class Toggle : MonoBehaviour {

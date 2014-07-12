@@ -8,12 +8,14 @@ public class Button : MonoBehaviour {
 
 	public Sprite inactiveSprite, activeSprite, disabledSprite;
 
+  // to handle the changing of sprites based on button state
 	private SpriteRenderer spriteRenderer;
+  // track the state of the button
 	private bool buttonDown = false;
 	private bool activeButtonSprite = false;
   private GameObject mainCamera;
 	private Camera theCamera;
-
+  
 	private bool buttonClicked = false;
 	public bool ButtonClicked {
 		get { return buttonClicked; }
@@ -75,17 +77,22 @@ public class Button : MonoBehaviour {
 		}
 	}
 
+  // Function: disableButton()
+  // Purpose: disable the button, make it unusable
   public void disableButton() {
     buttonDisabled = true;
     spriteRenderer.sprite = disabledSprite;
   }
 
+  // Function: enableButton()
+  // Purpose: enable the button, change the sprite
   public void enableButton() {
     buttonDisabled = false;
     spriteRenderer.sprite = inactiveSprite;
   }
 
-	// change button state to down
+  // Function: setButton(bool buttonActive)
+	// Purpose: change button state
 	public void setButton(bool buttonActive) {
     if (!activeButtonSprite && buttonActive) {
       activeButtonSprite = true;

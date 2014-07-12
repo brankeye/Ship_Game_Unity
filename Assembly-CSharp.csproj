@@ -47,7 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScroller.cs" />
-     <Compile Include="Assets\Scripts\Block\SelectColor.cs" />
+     <Compile Include="Assets\Scripts\Block\ColorFunctions.cs" />
      <Compile Include="Assets\Scripts\DrawLine.cs" />
      <Compile Include="Assets\Scripts\FollowOtherObject.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Button.cs" />
@@ -61,6 +61,14 @@
      <Compile Include="Assets\Scripts\GUI\Buttons\ShipScrollButton.cs" />
      <Compile Include="Assets\Scripts\GUI\Buttons\Toggle.cs" />
      <Compile Include="Assets\Scripts\GUI\FitToScreen.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\ToolHandler.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\Tools\ColorTool.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\Tools\HistoryTool.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\Tools\RotateTool.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\Tools\TypeTool.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\Tools\ViewTool.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\Tools\WorkTool.cs" />
+     <Compile Include="Assets\Scripts\GUI\ShipEditor\Tools\ZoomTool.cs" />
      <Compile Include="Assets\Scripts\GUI\SwitchScreens.cs" />
      <Compile Include="Assets\Scripts\GameControl\GameControl.cs" />
      <Compile Include="Assets\Scripts\GameControl\MuteMusic.cs" />

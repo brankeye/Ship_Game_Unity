@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// Name: MuteSound.cs
+// Purpose: mute the sound
+
+using UnityEngine;
 using System.Collections;
 
 public class MuteSound : MonoBehaviour {

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// Name: GameControl.cs
+// Purpose: handle saving of player data
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -7,6 +10,7 @@ using System.IO;
 
 public class GameControl : MonoBehaviour {
 
+  // static reference to this object so it can be called without initializing a game object
   public static GameControl control;
   public int currentShipIndex = 0;
   public int experience = 0;
@@ -15,13 +19,17 @@ public class GameControl : MonoBehaviour {
   public bool soundEnabled = true;
   public bool musicEnabled = true;
 
+  // a list of saved player ships
   public List<Ship> shipList;
 
+  // the default save path of each respective platform
   public string savePath;
 
 	void Awake () {
+    // set the save path
     savePath = Application.persistentDataPath + "/playerSave.dat";
 
+    // create a singleton of the GameControl object (only need one GameControl in any scene).
 		if (control == null) {
 			DontDestroyOnLoad (gameObject);
 			control = this;
@@ -45,7 +53,8 @@ public class GameControl : MonoBehaviour {
     FileStream file = File.Create(savePath);
 
     PlayerData data = new PlayerData();
-    setData(data);
+
+    saveData(data);
     bf.Serialize(file, data);
     file.Close();
   }
@@ -55,13 +64,13 @@ public class GameControl : MonoBehaviour {
       BinaryFormatter bf = new BinaryFormatter();
       FileStream file = File.Open(savePath, FileMode.Open);
       PlayerData data = (PlayerData) bf.Deserialize(file);
-      acquireData(data);
+      loadData(data);
       file.Close();
     }
   }
 
   // for saving, set data of control data to player data
-  private void setData(PlayerData tempData) {
+  private void saveData(PlayerData tempData) {
     tempData.experience = experience;
     tempData.numberOfShips = numberOfShips;
     tempData.currentShipIndex = currentShipIndex;
@@ -69,13 +78,15 @@ public class GameControl : MonoBehaviour {
   }
 
   // for loading, get control data from plater data
-  private void acquireData(PlayerData tempData) {
+  private void loadData(PlayerData tempData) {
     experience = tempData.experience;
     numberOfShips = tempData.numberOfShips;
     currentShipIndex = tempData.currentShipIndex;
     shipList = new List<Ship>(tempData.shipList);
   }
 }
+
+// a serializable class to be saved or loaded
 
 [Serializable]
 class PlayerData {
