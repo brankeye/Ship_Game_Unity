@@ -5,6 +5,7 @@ using System;
 
 [Serializable]
 public class Ship {
+  public float shipScale;
   public float smallestX;
   public float largestX;
   public float smallestY;
@@ -21,9 +22,11 @@ public class Ship {
     numberOfBlocks = temp.numberOfBlocks;
     vectorList = new List<Vector3Serializer>(temp.vectorList);
     colorList = new List<ColorSerializer>(temp.colorList);
+    shipScale = temp.shipScale;
   }
 
   public Ship(Vector3 blockPoint, Color blockColor) {
+    shipScale = 1.0f;
     vectorList = new List<Vector3Serializer>();
     colorList = new List<ColorSerializer>();
 
@@ -67,5 +70,9 @@ public class Ship {
 
   public Vector2 GetDimensions() {
     return new Vector2(largestX - smallestX + 1, largestY - largestX + 1);
+  }
+
+  public void SaveScale(Vector3 scale) {
+    shipScale = scale.x;
   }
 }

@@ -5,7 +5,7 @@ public class MoveObjectWithMouse : MonoBehaviour {
 
     // the power with which the ship is launched initially
 	public GameObject lineRenderer;
-    public float      launchPower = 1.0f;
+    public float launchPower = 1.0f;
 
     private Vector2  firstMouseWorldSpace, finalMouseWorldSpace;
     private bool     mouseDown = false;

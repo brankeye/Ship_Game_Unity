@@ -14,7 +14,7 @@ public class CancelButton : MonoBehaviour {
   
   void Update () {
     if(cancelButton.ButtonClicked) {
-      editShip.cancelCurrentModifications();
+      //editShip.cancelCurrentModifications();
     }
   }
 }
