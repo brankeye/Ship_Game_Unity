@@ -4,6 +4,7 @@ using System.Collections;
 public class EditShip : MonoBehaviour {
 
   private GameObject toolHandler;
+  private ToolHandler toolHandlerScript;
   private ShipFunctions shipFunctions;
   private Ship theShip;
   private GameObject shipObject;
@@ -31,10 +32,11 @@ public class EditShip : MonoBehaviour {
     }
 
     toolHandler = transform.parent.gameObject;
+    toolHandlerScript = toolHandler.GetComponent<ToolHandler>();
   }
 
 	void Update () {
-    if (GameControl.control.numberOfShips > 0 && !toolHandler.GetComponent<ToolHandler>().UsingColorTool)
+    if (GameControl.control.numberOfShips > 0 && !toolHandlerScript.UsingTool)
     {
       Vector2 rayPosition = Vector2.zero;
 
@@ -49,7 +51,6 @@ public class EditShip : MonoBehaviour {
 
         for(int i = 0; i < raycastDirections.Length; i++) {
           RaycastHit2D hit = Physics2D.Raycast(ray.origin, raycastDirections[i], shipObject.transform.localScale.x);
-          //Debug.Log(theShip.shipScale);
           if(hit.collider != null && !clickActive) {
             if(hit.collider.gameObject.tag == "Block") {
               if(i == 0) { // already a block at position of click
@@ -81,9 +82,10 @@ public class EditShip : MonoBehaviour {
                   break;
               }
 
+              /*
               shipObject.transform.localScale = new Vector3(1 / theShip.GetDimensions().magnitude,
                                                             1 / theShip.GetDimensions().magnitude,
-                                                            shipObject.transform.localScale.z);
+                                                            shipObject.transform.localScale.z);*/
 
               break;
             }

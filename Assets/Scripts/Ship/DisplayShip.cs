@@ -11,6 +11,7 @@ public class DisplayShip : MonoBehaviour {
   private int newShipIndex = -1;
   private SpriteRenderer spriteRenderer;
   private bool refresh = true;
+  public bool scaleTheShip = false;
 
 	// Use this for initialization
 	void Start () {
@@ -46,9 +47,13 @@ public class DisplayShip : MonoBehaviour {
         {
           Destroy(displayShip);
         }
-        displayShip = shipFunctions.CreateShip(GameControl.control.shipList [shipIndex], "Ventura");
+        Ship theShip = GameControl.control.shipList [shipIndex];
+        displayShip = shipFunctions.CreateShip(theShip, "Ventura");
 
         displayShip.transform.parent = transform;
+        if(scaleTheShip) {
+          displayShip.transform.localScale = new Vector3(theShip.shipScale, theShip.shipScale, 1);
+        }
         newShipIndex = shipIndex;
 
         refresh = false;

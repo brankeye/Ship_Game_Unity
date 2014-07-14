@@ -72,7 +72,7 @@ public class Ship {
     return new Vector2(largestX - smallestX + 1, largestY - largestX + 1);
   }
 
-  public void SaveScale(Vector3 scale) {
-    shipScale = scale.x;
+  public void SaveScale(float scale) {
+    shipScale = scale;
   }
 }

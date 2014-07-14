@@ -16,15 +16,8 @@ public class ShipFunctions : MonoBehaviour {
     }
 
     float scaleMod = 1.0f;
-
-    Vector2 size = ship.GetDimensions();
-    scaleMod = 1 / size.magnitude;
-
-    newShip.transform.localScale = new Vector3(scaleMod,
-                                               scaleMod,
-                                               newShip.transform.localScale.z);
-
-    ship.SaveScale(newShip.transform.localScale);
+    scaleMod = 1 / ship.GetDimensions().magnitude;
+    ship.SaveScale(scaleMod);
 
     return newShip;
   }

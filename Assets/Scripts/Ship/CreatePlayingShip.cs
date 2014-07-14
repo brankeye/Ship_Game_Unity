@@ -9,9 +9,11 @@ public class CreatePlayingShip : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     shipFunctions = GetComponent<ShipFunctions>();
-    playerShip = shipFunctions.CreateShip(GameControl.control.shipList[GameControl.control.currentShipIndex], "Ventura");
+
+    Ship theShip = GameControl.control.shipList [GameControl.control.currentShipIndex];
+    playerShip = shipFunctions.CreateShip(theShip, "Ventura");
     playerShip.transform.parent = transform;
 
-    playerShip.transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+    playerShip.transform.localScale = new Vector3(theShip.shipScale, theShip.shipScale, 1.0f);
 	}
 }

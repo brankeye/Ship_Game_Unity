@@ -5,11 +5,11 @@ public class CancelButton : MonoBehaviour {
 
   public GameObject shipEditor;
   private Button cancelButton;
-  private EditShip editShip;
+  //private EditShip editShip;
   
   void Start() {
     cancelButton = GetComponent<Button>();
-    editShip = shipEditor.GetComponent<EditShip>();
+    //editShip = shipEditor.GetComponent<EditShip>();
   }
   
   void Update () {
