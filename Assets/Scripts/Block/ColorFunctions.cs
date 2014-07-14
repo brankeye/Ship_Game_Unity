@@ -11,12 +11,20 @@ public class ColorFunctions : MonoBehaviour {
   // in case user cancels color selector, save old color
   private Color oldColor;
   private bool oldColorSaved;
-  private bool renderColorPicker;
+  public bool renderColorPicker;
   private bool colorSelected;
   private Rect rect;
 
   public Color NewColor {
     get { return color; }
+  }
+
+  public bool ColorSelectionComplete {
+    get { return colorSelected; }
+  }
+
+  public bool DrawingSelector {
+    get { return renderColorPicker; }
   }
 
   void Start() {

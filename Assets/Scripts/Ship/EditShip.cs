@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EditShip : MonoBehaviour {
 
+  private GameObject toolHandler;
   private ShipFunctions shipFunctions;
   private Ship theShip;
   private GameObject shipObject;
@@ -28,10 +29,12 @@ public class EditShip : MonoBehaviour {
       shipObject = shipFunctions.CreateShip(theShip, "Ventura");
       shipObject.transform.parent = transform;
     }
+
+    toolHandler = transform.parent.gameObject;
   }
 
 	void Update () {
-    if (GameControl.control.numberOfShips > 0)
+    if (GameControl.control.numberOfShips > 0 && !toolHandler.GetComponent<ToolHandler>().UsingColorTool)
     {
       Vector2 rayPosition = Vector2.zero;
 
@@ -55,28 +58,32 @@ public class EditShip : MonoBehaviour {
               Vector3 newBlockPosition;
               switch(i) {
                 case 1: // left
-                  newBlockPosition = hit.collider.gameObject.transform.position;
+                  newBlockPosition = hit.collider.gameObject.transform.localPosition;
                   newBlockPosition = new Vector3(newBlockPosition.x + 1.0f, newBlockPosition.y, newBlockPosition.z);
                   createNewBlock(newBlockPosition);
                   break;
                 case 2: // up
-                  newBlockPosition = hit.collider.gameObject.transform.position;
+                  newBlockPosition = hit.collider.gameObject.transform.localPosition;
                   newBlockPosition = new Vector3(newBlockPosition.x, newBlockPosition.y - 1.0f, newBlockPosition.z);
                   createNewBlock(newBlockPosition);
                   break;
                 case 3: // right
-                  newBlockPosition = hit.collider.gameObject.transform.position;
+                  newBlockPosition = hit.collider.gameObject.transform.localPosition;
                   newBlockPosition = new Vector3(newBlockPosition.x - 1.0f, newBlockPosition.y, newBlockPosition.z);
                   createNewBlock(newBlockPosition);
                   break;
                 case 4: // down
-                  newBlockPosition = hit.collider.gameObject.transform.position;
+                  newBlockPosition = hit.collider.gameObject.transform.localPosition;
                   newBlockPosition = new Vector3(newBlockPosition.x, newBlockPosition.y + 1.0f, newBlockPosition.z);
                   createNewBlock(newBlockPosition);
                   break;
                 default:
                   break;
               }
+
+              shipObject.transform.localScale = new Vector3(1 / theShip.GetDimensions().magnitude,
+                                                            1 / theShip.GetDimensions().magnitude,
+                                                            shipObject.transform.localScale.z);
 
               break;
             }
@@ -95,7 +102,7 @@ public class EditShip : MonoBehaviour {
   }
 
   private void createNewBlock(Vector3 blockVector) {
-    Color blockColor = Color.red;
+    Color blockColor = toolHandler.GetComponent<ColorTool>().NewColor;
     theShip.AddBlock(blockVector, blockColor);
 
     shipFunctions.CreateBlock(shipObject, blockVector, blockColor);
