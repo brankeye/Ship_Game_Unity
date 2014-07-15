@@ -5,7 +5,6 @@ public class DisplayShip : MonoBehaviour {
 
   public GameObject deleteShipButton;
   private DeleteShipButton deleteButton;
-  public GameObject shipEditor;
   private ShipFunctions shipFunctions;
   private GameObject displayShip;
   private int newShipIndex = -1;
@@ -16,7 +15,7 @@ public class DisplayShip : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
     deleteButton = deleteShipButton.GetComponent<DeleteShipButton>();
-    shipFunctions = GetComponent<ShipFunctions>();
+    shipFunctions = gameObject.AddComponent("ShipFunctions") as ShipFunctions;
     spriteRenderer = GetComponent<SpriteRenderer>();
 	}
 	

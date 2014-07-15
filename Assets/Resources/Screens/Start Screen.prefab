@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScreen: {fileID: 100006, guid: 42e7d84944e90914baf55cf19c9edfa3, type: 2}
+  thisScreen: {fileID: 100008}
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1

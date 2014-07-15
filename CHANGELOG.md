@@ -2,14 +2,20 @@
 
 ### CURRENT VERSION ###
 
-* v1.2.1 - Tuesday, July 14, 2014
+* v1.2.2 - Tuesday, July 15, 2014
+* efficiency improvements in the way the Ship Editor, Tool Handler, and various tools work.
+* the position of a block placed in the Ship Editor is now determined mathematically using the mouse position and the current ship object scale.
+  * much more efficient this way, previous method was VERY bulky.
+* blocks added in the Ship Editor do not cause the whole ship to be redrawn, they are simply added individually -as of an earlier version-.
+
+### PAST VERSIONS ###
+
+* v1.2.1 - Monday, July 14, 2014
 * added new Zoom Tool for the Ship Editor.
 * ships in the Ship Display now scale properly.
 * ships in the Ship Editor are by default scaled 1:1, the user is in control of zooming.
 * blocks cannot be added in the Ship Editor if a tool is in use.
 * added two new panels to the Ship Editor, the panels cover the ship just below the UI controls.
-
-### PAST VERSIONS ###
 
 * v1.2.0 - Tuesday, July 13, 2014
 * user can now edit any ship, and add as many blocks as they want.

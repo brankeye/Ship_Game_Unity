@@ -9,17 +9,14 @@ public class CreateDefaultShip : MonoBehaviour {
   // the create button creates a one block ship for the user
   private Button createButton;
   // color functions handles the selecting of a color
-  private ColorFunctions colorFunctions;
+  private ColorTool colorTool;
   private bool drawColorSelector;
-  private bool selectionComplete;
-  private Color selectedColor;
 
   void Start() {
     drawColorSelector = false;
-    selectionComplete = false;
 
     createButton = GetComponent<Button>();
-    colorFunctions = GetComponent<ColorFunctions>();
+    colorTool = GetComponent<ColorTool>();
   }
 
   void Update() {
@@ -30,22 +27,19 @@ public class CreateDefaultShip : MonoBehaviour {
 
     // let the user select a color
     if(drawColorSelector) {
-      if(colorFunctions.DrawColorPicker(selectedColor)) {
-        selectedColor = colorFunctions.NewColor;
-        selectionComplete = true;
+      colorTool.SelectNewColor();
+      if(colorTool.SelectionCompleted) {
         drawColorSelector = false;
+
+        // once a color is selected, create a new one block ship for them and add it to the end of the ship list
+        if(!colorTool.SelectionCanceled ) {
+          Ship newDefaultShip = new Ship(new Vector3(0,0,0), colorTool.NewColor);
+          
+          GameControl.control.shipList.Add(newDefaultShip);
+          GameControl.control.numberOfShips++;
+          GameControl.control.currentShipIndex = GameControl.control.numberOfShips - 1;
+        }
       }
-    }
-
-    // once a color is selected, create a new one block ship for them and add it to the end of the ship list
-    if(selectionComplete) {
-      Ship newDefaultShip = new Ship(new Vector3(0,0,0), selectedColor);
-
-      GameControl.control.shipList.Add(newDefaultShip);
-      GameControl.control.numberOfShips++;
-      GameControl.control.currentShipIndex = GameControl.control.numberOfShips - 1;
-
-      selectionComplete = false;
     }
   }
 }

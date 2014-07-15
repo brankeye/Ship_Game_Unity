@@ -3,38 +3,59 @@ using System.Collections;
 
 public class ToolHandler : MonoBehaviour {
 
-  private ViewTool  viewTool;
-  private ColorTool colorTool;
-  private ZoomTool  zoomTool;
+  // for all tools
+  private Ship          theShip;
+  private GameObject    shipObject;
+  private ShipFunctions shipFunctions;
 
-  private bool usingViewTool = false;
-  private bool launchColorTool = false;
-  private GameObject ship;
+  public Ship TemporaryShip {
+    get { return theShip; }
+  }
 
   private bool usingTool = false;
   public bool UsingTool {
     get { return usingTool; }
   }
 
+  // for view tool
+  private ViewTool  viewTool;
+  private bool usingViewTool = false;
+
   public bool UsingViewTool {
     get { return usingViewTool; }
   }
 
+  // for color tool
+  private ColorTool colorTool;
+  private bool launchColorTool = false;
+
   public bool UsingColorTool {
-    get { return (colorTool.DrawingSelector); }
+    get { return colorTool.SelectorRendering; }
   }
+  
+  // for zoom tool
+  private ZoomTool  zoomTool;
+
+  // for work tool
+  private WorkTool  workTool;
+  private bool clickActive = false;
 
   void Start () {
-    viewTool = gameObject.AddComponent("ViewTool") as ViewTool;
+    workTool  = gameObject.AddComponent("WorkTool")  as WorkTool;
+    viewTool  = gameObject.AddComponent("ViewTool")  as ViewTool;
     colorTool = gameObject.AddComponent("ColorTool") as ColorTool;
-    zoomTool = gameObject.AddComponent("ZoomTool") as ZoomTool;
+    zoomTool  = gameObject.AddComponent("ZoomTool")  as ZoomTool;
+
+    shipFunctions = gameObject.AddComponent("ShipFunctions") as ShipFunctions;
+
+    if (GameControl.control.numberOfShips > 0) {
+      theShip = new Ship(GameControl.control.shipList [GameControl.control.currentShipIndex]);
+      shipObject = shipFunctions.CreateShip(theShip, "Ventura");
+      shipObject.transform.parent = transform;
+    }
 	}
 	
 	void Update () {
-    if(ship == null) {
-      ship = GameObject.FindWithTag("Ship");
-    }
-
     HandleViewTool();
     HandleColorTool();
     HandleZoomTool();
@@ -44,6 +65,8 @@ public class ToolHandler : MonoBehaviour {
     } else {
       usingTool = false;
     }
+
+    HandleWorkTool();
 	}
 
   void HandleViewTool() {
@@ -51,7 +74,7 @@ public class ToolHandler : MonoBehaviour {
         Input.GetKey(KeyCode.LeftShift) && Input.GetMouseButton(0))
     {
       usingViewTool = true;
-      viewTool.MoveGameObject(ship);
+      viewTool.MoveGameObject(shipObject);
     } else {
       usingViewTool = false;
     }
@@ -70,10 +93,28 @@ public class ToolHandler : MonoBehaviour {
 
   void HandleZoomTool() {
     if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.KeypadPlus)) {
-      zoomTool.ZoomIn(ship);
+      zoomTool.ZoomIn(shipObject);
     }
     if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.KeypadMinus)) {
-      zoomTool.ZoomOut(ship);
+      zoomTool.ZoomOut(shipObject);
+    }
+  }
+
+  void HandleWorkTool() {
+    if (GameControl.control.numberOfShips > 0 && !usingTool) {
+      if(Input.touchCount > 0) {
+        if(!clickActive) {
+          workTool.AddBlock(shipObject, theShip, Input.touches[0].position, colorTool.NewColor);
+        }
+        clickActive = true;
+      } else if(Input.GetMouseButtonDown(0)) {
+        if(!clickActive) {
+          workTool.AddBlock(shipObject, theShip, Input.mousePosition, colorTool.NewColor);
+        }
+        clickActive = true;
+      } else {
+        clickActive = false;
+      }
     }
   }
 }

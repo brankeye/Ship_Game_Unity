@@ -3,15 +3,24 @@ using System.Collections;
 
 public class ColorTool : MonoBehaviour {
 
-  ColorFunctions colorFunctions;
+  private ColorFunctions colorFunctions;
   private Color newColor;
   private bool selectColor;
+  private bool colorSelected = false;
 
   public Color NewColor {
     get { return newColor; }
   }
 
-  public bool DrawingSelector {
+  public bool SelectionCompleted {
+    get { return colorSelected; }
+  }
+
+  public bool SelectionCanceled {
+    get { return colorFunctions.CancelPressed; }
+  }
+
+  public bool SelectorRendering {
     get { return colorFunctions.DrawingSelector; }
   }
 
@@ -24,9 +33,11 @@ public class ColorTool : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+    colorSelected = false;
     // let the user select a color
     if(selectColor) {
-      if(colorFunctions.DrawColorPicker(newColor)) {
+      colorSelected = colorFunctions.DrawColorPicker(newColor);
+      if(colorSelected) {
         newColor = colorFunctions.NewColor;
         selectColor = false;
       }
@@ -34,6 +45,8 @@ public class ColorTool : MonoBehaviour {
 	}
 
   public void SelectNewColor() {
-    selectColor = true;
+    if(!colorSelected) {
+      selectColor = true;
+    }
   }
 }
