@@ -68,8 +68,20 @@ public class Ship {
     }
   }
 
+  public bool DeleteBlock(Vector3 blockPoint) {
+    for(int i = 0; i < vectorList.Count; i++) {
+      if(vectorList[i].Vector3_S.Equals(blockPoint)) {
+        vectorList.RemoveAt(i);
+        colorList.RemoveAt(i);
+        numberOfBlocks--;
+        return true;
+      }
+    }
+    return false;
+  }
+
   public Vector2 GetDimensions() {
-    return new Vector2(largestX - smallestX + 1, largestY - largestX + 1);
+    return new Vector2(largestX - smallestX + 1, largestY - smallestY + 1);
   }
 
   public void SaveScale(float scale) {

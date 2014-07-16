@@ -102,18 +102,34 @@ public class ToolHandler : MonoBehaviour {
 
   void HandleWorkTool() {
     if (GameControl.control.numberOfShips > 0 && !usingTool) {
-      if(Input.touchCount > 0) {
-        if(!clickActive) {
-          workTool.AddBlock(shipObject, theShip, Input.touches[0].position, colorTool.NewColor);
+      if(!Input.GetKey(KeyCode.LeftShift)) {
+        if(Input.touchCount > 0) {
+          if(!clickActive) {
+            workTool.AddBlock(shipObject, theShip, Input.touches[0].position, colorTool.NewColor);
+          }
+          clickActive = true;
+        } else if(Input.GetMouseButtonDown(0)) {
+          if(!clickActive) {
+            workTool.AddBlock(shipObject, theShip, Input.mousePosition, colorTool.NewColor);
+          }
+          clickActive = true;
+        } else {
+          clickActive = false;
         }
-        clickActive = true;
-      } else if(Input.GetMouseButtonDown(0)) {
-        if(!clickActive) {
-          workTool.AddBlock(shipObject, theShip, Input.mousePosition, colorTool.NewColor);
+      } else if(Input.GetKey(KeyCode.D)) {
+        if(Input.touchCount > 0) {
+          if(!clickActive) {
+            workTool.DeleteBlock(shipObject, theShip, Input.touches[0].position);
+          }
+          clickActive = true;
+        } else if(Input.GetMouseButtonDown(1)) {
+          if(!clickActive) {
+            workTool.DeleteBlock(shipObject, theShip, Input.mousePosition);
+          }
+          clickActive = true;
+        } else {
+          clickActive = false;
         }
-        clickActive = true;
-      } else {
-        clickActive = false;
       }
     }
   }

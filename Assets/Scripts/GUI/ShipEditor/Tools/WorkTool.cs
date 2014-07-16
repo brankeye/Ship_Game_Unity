@@ -10,14 +10,6 @@ public class WorkTool : MonoBehaviour {
   private ShipFunctions shipFunctions;
 
   void Start() {
-    Button[] buttons = gameObject.GetComponentsInChildren<Button>();
-    for(int i = 0; i < buttons.Length; i++) {
-      string buttonName = buttons[i].gameObject.name;
-      if(buttonName == "Ok Button") {
-        okButton = buttons[i];
-      }
-    }
-
     raycastDirections = new List<Vector3>();
     raycastDirections.Add(Vector3.left);
     raycastDirections.Add(Vector3.up);
@@ -25,6 +17,13 @@ public class WorkTool : MonoBehaviour {
     raycastDirections.Add(Vector3.down);
 
     shipFunctions = gameObject.GetComponent<ShipFunctions>();
+
+    Button[] buttons = gameObject.GetComponentsInChildren<Button>();
+    for(int i = 0; i < buttons.Length; i++) {
+      if(buttons[i].gameObject.name.Equals("Ok Button")) {
+        okButton = buttons[i];
+      }
+    }
   }
 
   void Update() {
@@ -50,8 +49,14 @@ public class WorkTool : MonoBehaviour {
     }
   }
 
-  public void DeleteBlock() {
-
+  public void DeleteBlock(GameObject shipObject, Ship theShip, Vector2 rayPosition) {
+    if(theShip.numberOfBlocks > 1) {
+      GameObject targetBlock = shipFunctions.CheckBlock("Block", rayPosition, Vector3.forward, theShip.shipScale);
+      if(targetBlock != null) {
+        theShip.DeleteBlock(targetBlock.transform.localPosition);
+        GameObject.Destroy(targetBlock);
+      }
+    }
   }
 
   public void UpdateModifiedShip() {
