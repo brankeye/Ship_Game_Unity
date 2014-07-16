@@ -10,9 +10,10 @@ public class ShipFunctions : MonoBehaviour {
     newShip.tag = "Ship";
     
     for(int i = 0; i < ship.numberOfBlocks; i++) {
-      GameObject newBlock = Instantiate(Resources.Load("Block")) as GameObject;
-      newBlock.transform.localPosition = ship.vectorList[i].Vector3_S;
-      newBlock.GetComponent<SpriteRenderer>().color = ship.colorList[i].Color_S;
+      GameObject newBlock = Instantiate(Resources.Load(ship.blockList[i].BlockType)) as GameObject;
+      Block block = ship.blockList[i];
+      newBlock.transform.localPosition = block.BlockVector.Vector3_S;
+      newBlock.GetComponent<SpriteRenderer>().color = block.BlockColor.Color_S;
       newBlock.transform.parent = newShip.transform;
     }
 
@@ -23,13 +24,25 @@ public class ShipFunctions : MonoBehaviour {
     return newShip;
   }
 
+  /*
   public GameObject CreateBlock(GameObject ship, Vector3 blockPosition, Color blockColor) {
-    GameObject newBlock = Instantiate(Resources.Load("Block")) as GameObject;
+    GameObject newBlock = Instantiate(Resources.Load("Blocks/Block00")) as GameObject;
     newBlock.transform.parent = ship.transform;
     newBlock.transform.localScale = Vector3.one;
     newBlock.transform.localPosition = new Vector3(blockPosition.x, blockPosition.y, blockPosition.z);
     newBlock.GetComponent<SpriteRenderer>().color = blockColor;
 
+    return newBlock;
+  }
+  */
+
+  public GameObject CreateBlock(GameObject ship, string blockType, Vector3 blockPosition, Color blockColor) {
+    GameObject newBlock = Instantiate(Resources.Load(blockType)) as GameObject;
+    newBlock.transform.parent = ship.transform;
+    newBlock.transform.localScale = Vector3.one;
+    newBlock.transform.localPosition = new Vector3(blockPosition.x, blockPosition.y, blockPosition.z);
+    newBlock.GetComponent<SpriteRenderer>().color = blockColor;
+    
     return newBlock;
   }
 

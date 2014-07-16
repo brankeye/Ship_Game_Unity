@@ -40,11 +40,15 @@ public class ToolHandler : MonoBehaviour {
   private WorkTool  workTool;
   private bool clickActive = false;
 
+  // for type tool
+  private TypeTool typeTool;
+
   void Start () {
     workTool  = gameObject.AddComponent("WorkTool")  as WorkTool;
     viewTool  = gameObject.AddComponent("ViewTool")  as ViewTool;
     colorTool = gameObject.AddComponent("ColorTool") as ColorTool;
     zoomTool  = gameObject.AddComponent("ZoomTool")  as ZoomTool;
+    typeTool  = gameObject.AddComponent("TypeTool")  as TypeTool;
 
     shipFunctions = gameObject.AddComponent("ShipFunctions") as ShipFunctions;
 
@@ -59,6 +63,7 @@ public class ToolHandler : MonoBehaviour {
     HandleViewTool();
     HandleColorTool();
     HandleZoomTool();
+    HandleTypeTool();
 
     if(usingViewTool || UsingColorTool) {
       usingTool = true;
@@ -105,12 +110,12 @@ public class ToolHandler : MonoBehaviour {
       if(!Input.GetKey(KeyCode.LeftShift)) {
         if(Input.touchCount > 0) {
           if(!clickActive) {
-            workTool.AddBlock(shipObject, theShip, Input.touches[0].position, colorTool.NewColor);
+            workTool.AddBlock(shipObject, theShip, typeTool.CurrentType, Input.touches[0].position, colorTool.NewColor);
           }
           clickActive = true;
         } else if(Input.GetMouseButtonDown(0)) {
           if(!clickActive) {
-            workTool.AddBlock(shipObject, theShip, Input.mousePosition, colorTool.NewColor);
+            workTool.AddBlock(shipObject, theShip, typeTool.CurrentType, Input.mousePosition, colorTool.NewColor);
           }
           clickActive = true;
         } else {
@@ -131,6 +136,22 @@ public class ToolHandler : MonoBehaviour {
           clickActive = false;
         }
       }
+    }
+  }
+
+  void HandleTypeTool() {
+    if(Input.GetKey(KeyCode.LeftShift)) {
+      if(Input.GetKey(KeyCode.Alpha1)) {
+        typeTool.SelectBlockType(0);
+      } else if(Input.GetKey(KeyCode.Alpha2)) {
+        typeTool.SelectBlockType(1);
+      } else if(Input.GetKey(KeyCode.Alpha3)) {
+        typeTool.SelectBlockType(2);
+      } else if(Input.GetKey(KeyCode.Alpha4)) {
+        typeTool.SelectBlockType(3);
+      } else if(Input.GetKey(KeyCode.Alpha5)) {
+        typeTool.SelectBlockType(4);
+      } 
     }
   }
 }

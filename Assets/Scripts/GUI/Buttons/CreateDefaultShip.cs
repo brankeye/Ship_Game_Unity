@@ -33,7 +33,7 @@ public class CreateDefaultShip : MonoBehaviour {
 
         // once a color is selected, create a new one block ship for them and add it to the end of the ship list
         if(!colorTool.SelectionCanceled ) {
-          Ship newDefaultShip = new Ship(new Vector3(0,0,0), colorTool.NewColor);
+          Ship newDefaultShip = new Ship("Blocks/Block00", new Vector3(0,0,0), colorTool.NewColor);
           
           GameControl.control.shipList.Add(newDefaultShip);
           GameControl.control.numberOfShips++;

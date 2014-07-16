@@ -447,7 +447,8 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6100000, guid: 7871e5933f6299e46869ea2b9bbd0270, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7871e5933f6299e46869ea2b9bbd0270, type: 2}
   m_RootGameObject: {fileID: 1985087837}
   m_IsPrefabParent: 0
@@ -614,11 +615,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 1985087838}
   - 212: {fileID: 1985087842}
-  - 61: {fileID: 1985087841}
-  - 114: {fileID: 1985087840}
   - 61: {fileID: 1985087839}
   m_Layer: 9
-  m_Name: Block
+  m_Name: Block00
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,34 +646,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
---- !u!114 &1985087840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 7871e5933f6299e46869ea2b9bbd0270,
-    type: 2}
-  m_PrefabInternal: {fileID: 1449871382}
-  m_GameObject: {fileID: 1985087837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0d5ec7cc930a94fa91d9237dc93b09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftBlock: {fileID: 0}
-  rightBlock: {fileID: 0}
-  topBlock: {fileID: 0}
-  bottomBlock: {fileID: 0}
---- !u!61 &1985087841
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6100000, guid: 7871e5933f6299e46869ea2b9bbd0270,
-    type: 2}
-  m_PrefabInternal: {fileID: 1449871382}
-  m_GameObject: {fileID: 1985087837}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Size: {x: 1, y: 1}
-  m_Center: {x: 0, y: 0}
 --- !u!212 &1985087842
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -696,7 +667,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ca0b6c0e620618e4391f04a4f2b8c5fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b5ff4f14b096964f903b51f8a7c1962, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &2031449349
 GameObject:

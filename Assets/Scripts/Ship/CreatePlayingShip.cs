@@ -14,6 +14,6 @@ public class CreatePlayingShip : MonoBehaviour {
     playerShip = shipFunctions.CreateShip(theShip, "Ventura");
     playerShip.transform.parent = transform;
 
-    playerShip.transform.localScale = new Vector3(theShip.shipScale, theShip.shipScale, 1.0f);
+    playerShip.transform.localScale = new Vector3(theShip.shipScale * 5.0f, theShip.shipScale * 5.0f, 1.0f);
 	}
 }

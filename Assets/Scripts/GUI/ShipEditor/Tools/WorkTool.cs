@@ -32,7 +32,7 @@ public class WorkTool : MonoBehaviour {
     }
   }
 
-  public void AddBlock(GameObject shipObject, Ship theShip, Vector2 rayPosition, Color newBlockColor) {
+  public void AddBlock(GameObject shipObject, Ship theShip, string blockType, Vector2 rayPosition, Color newBlockColor) {
     if(shipFunctions.CheckBlock("Block", rayPosition, Vector3.forward, theShip.shipScale) == null) {
       float shipObjectScale = shipObject.transform.localScale.x;
       List<GameObject> blockList = shipFunctions.CheckBlocks("Block", rayPosition, raycastDirections, shipObjectScale);
@@ -43,8 +43,8 @@ public class WorkTool : MonoBehaviour {
         float yPos = Mathf.Round(newBlockVector.y / shipObjectScale);
         newBlockVector = new Vector3(xPos, yPos, 1.0f);
 
-        theShip.AddBlock(newBlockVector, newBlockColor);
-        shipFunctions.CreateBlock(shipObject, newBlockVector, newBlockColor);
+        theShip.AddBlock(blockType, newBlockVector, newBlockColor);
+        shipFunctions.CreateBlock(shipObject, blockType, newBlockVector, newBlockColor);
       }
     }
   }
