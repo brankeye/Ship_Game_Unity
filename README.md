@@ -7,7 +7,7 @@
 
 ### VERSION ###
 
-* v1.2.5
+* v1.2.6
 
 ### How do I get set up? ###
 

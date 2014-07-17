@@ -4,16 +4,23 @@
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+* v1.2.6 - Wednesday, July 16, 2014
+* added ability to rotate any selected block and place it on the ship. All ships save properly, rotated or not.
+* rotated blocks can currently be placed anywhere. Working on a fix.
+* added Debug Logs for tools in the Tool Handler so you know what happens when certain tools are used.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### PAST VERSIONS ###
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 * v1.2.5 - Wednesday, July 16, 2014
 * added block types: Quad, various Triangles, and a Half Circle.
 * Operational Tools: Work Tool, Zoom Tool, Type Tool, Color Tool, View Tool.
 * Upcoming Tools: Rotate Tool, History Tool.
 * can use various shapes in the Ship Editor, cannot rotate blocks yet, coming next.
 * efficiency improvements to loading blocks, there is now one list containing a Block class with type, position, and color as opposed to separate lists.
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-### PAST VERSIONS ###
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 

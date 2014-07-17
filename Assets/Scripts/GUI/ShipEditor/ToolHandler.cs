@@ -43,12 +43,16 @@ public class ToolHandler : MonoBehaviour {
   // for type tool
   private TypeTool typeTool;
 
+  // for rotate tool
+  private RotateTool rotateTool;
+
   void Start () {
-    workTool  = gameObject.AddComponent("WorkTool")  as WorkTool;
-    viewTool  = gameObject.AddComponent("ViewTool")  as ViewTool;
-    colorTool = gameObject.AddComponent("ColorTool") as ColorTool;
-    zoomTool  = gameObject.AddComponent("ZoomTool")  as ZoomTool;
-    typeTool  = gameObject.AddComponent("TypeTool")  as TypeTool;
+    workTool   = gameObject.AddComponent("WorkTool")   as WorkTool;
+    viewTool   = gameObject.AddComponent("ViewTool")   as ViewTool;
+    colorTool  = gameObject.AddComponent("ColorTool")  as ColorTool;
+    zoomTool   = gameObject.AddComponent("ZoomTool")   as ZoomTool;
+    typeTool   = gameObject.AddComponent("TypeTool")   as TypeTool;
+    rotateTool = gameObject.AddComponent("RotateTool") as RotateTool;
 
     shipFunctions = gameObject.AddComponent("ShipFunctions") as ShipFunctions;
 
@@ -64,6 +68,7 @@ public class ToolHandler : MonoBehaviour {
     HandleColorTool();
     HandleZoomTool();
     HandleTypeTool();
+    HandleRotateTool();
 
     if(usingViewTool || UsingColorTool) {
       usingTool = true;
@@ -78,6 +83,7 @@ public class ToolHandler : MonoBehaviour {
     if (GameControl.control.numberOfShips > 0 && 
         Input.GetKey(KeyCode.LeftShift) && Input.GetMouseButton(0))
     {
+      Debug.Log("View tool running...");
       usingViewTool = true;
       viewTool.MoveGameObject(shipObject);
     } else {
@@ -98,9 +104,11 @@ public class ToolHandler : MonoBehaviour {
 
   void HandleZoomTool() {
     if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.KeypadPlus)) {
+      Debug.Log("Zoom in...");
       zoomTool.ZoomIn(shipObject);
     }
     if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.KeypadMinus)) {
+      Debug.Log("Zoom out...");
       zoomTool.ZoomOut(shipObject);
     }
   }
@@ -110,12 +118,12 @@ public class ToolHandler : MonoBehaviour {
       if(!Input.GetKey(KeyCode.LeftShift)) {
         if(Input.touchCount > 0) {
           if(!clickActive) {
-            workTool.AddBlock(shipObject, theShip, typeTool.CurrentType, Input.touches[0].position, colorTool.NewColor);
+            workTool.AddBlock(shipObject, theShip, typeTool.CurrentType, Input.touches[0].position, rotateTool.CurrentRotation, colorTool.NewColor);
           }
           clickActive = true;
         } else if(Input.GetMouseButtonDown(0)) {
           if(!clickActive) {
-            workTool.AddBlock(shipObject, theShip, typeTool.CurrentType, Input.mousePosition, colorTool.NewColor);
+            workTool.AddBlock(shipObject, theShip, typeTool.CurrentType, Input.mousePosition, rotateTool.CurrentRotation, colorTool.NewColor);
           }
           clickActive = true;
         } else {
@@ -142,16 +150,28 @@ public class ToolHandler : MonoBehaviour {
   void HandleTypeTool() {
     if(Input.GetKey(KeyCode.LeftShift)) {
       if(Input.GetKey(KeyCode.Alpha1)) {
+        Debug.Log("Selected quad block...");
         typeTool.SelectBlockType(0);
       } else if(Input.GetKey(KeyCode.Alpha2)) {
+        Debug.Log("Selected half-circle block...");
         typeTool.SelectBlockType(1);
       } else if(Input.GetKey(KeyCode.Alpha3)) {
+        Debug.Log("Selected right triangle block...");
         typeTool.SelectBlockType(2);
       } else if(Input.GetKey(KeyCode.Alpha4)) {
+        Debug.Log("Selected short triangle block...");
         typeTool.SelectBlockType(3);
       } else if(Input.GetKey(KeyCode.Alpha5)) {
+        Debug.Log("Selected long triangle block...");
         typeTool.SelectBlockType(4);
       } 
+    }
+  }
+
+  void HandleRotateTool() {
+    if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R)) {
+      rotateTool.SetBlockRotation();
+      Debug.Log("New rotation angle is " + rotateTool.CurrentRotation);
     }
   }
 }

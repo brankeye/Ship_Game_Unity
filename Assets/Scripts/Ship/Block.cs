@@ -6,7 +6,8 @@ using System;
 public class Block {
 
   private string blockType;
-  private Vector3Serializer blockVector;
+  private Vector3Serializer blockPosition;
+  private float blockRotation;
   private ColorSerializer blockColor;
 
   public string BlockType {
@@ -14,9 +15,14 @@ public class Block {
     set { blockType = value; }
   }
 
-  public Vector3Serializer BlockVector {
-    get { return blockVector; }
-    set { blockVector = value; }
+  public Vector3Serializer BlockPosition {
+    get { return blockPosition; }
+    set { blockPosition = value; }
+  }
+
+  public float BlockRotation {
+    get { return blockRotation; }
+    set { blockRotation = value; }
   }
 
   public ColorSerializer BlockColor {
@@ -24,15 +30,16 @@ public class Block {
     set { blockColor = value; }
   }
 
-  public Block(string type, Vector3 vector, Color color) {
-    blockVector = new Vector3Serializer();
+  public Block(string type, Vector3 position, float rotation, Color color) {
+    blockPosition = new Vector3Serializer();
     blockColor = new ColorSerializer();
-    SetBlock(type, vector, color);
+    SetBlock(type, position, rotation, color);
   }
 
-	public void SetBlock(string type, Vector3 vector, Color color) {
+	public void SetBlock(string type, Vector3 position, float rotation, Color color) {
     blockType = type;
-    BlockVector.Vector3_S = vector;
+    BlockPosition.Vector3_S = position;
+    blockRotation = rotation;
     BlockColor.Color_S = color;
   }
 }

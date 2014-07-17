@@ -11,8 +11,6 @@ public class Ship {
   public float smallestY;
   public float largestY;
   public int numberOfBlocks;
-  //public List<Vector3Serializer> vectorList;
-  //public List<ColorSerializer>   colorList;
   public List<Block> blockList;
   
   public Ship(Ship temp) {
@@ -21,51 +19,30 @@ public class Ship {
     smallestY = temp.smallestY;
     largestY = temp.largestY;
     numberOfBlocks = temp.numberOfBlocks;
-    //vectorList = new List<Vector3Serializer>(temp.vectorList);
-    //colorList = new List<ColorSerializer>(temp.colorList);
     blockList = new List<Block>(temp.blockList);
     shipScale = temp.shipScale;
   }
 
-  public Ship(string blockType, Vector3 blockPoint, Color blockColor) {
+  public Ship(string blockType, Vector3 blockPoint, float blockRotation, Color blockColor) {
     shipScale = 1.0f;
-    //vectorList = new List<Vector3Serializer>();
-    //colorList = new List<ColorSerializer>();
     blockList = new List<Block>();
 
-    AddBlock(blockType, blockPoint, blockColor);
+    AddBlock(blockType, blockPoint, blockRotation, blockColor);
     smallestX = blockPoint.x;
     largestX = blockPoint.x;
     smallestY = blockPoint.y;
     largestY = blockPoint.y;
   }
-
-  //public Ship(int numBlocks, List<Vector3Serializer> vList, List<ColorSerializer> cList) {
+  
   public Ship(int numBlocks, List<Block> bList) {  
     numberOfBlocks = numBlocks;
-    //vectorList = vList;
-    //colorList = cList;
     blockList = new List<Block>(bList);
   }
 
-  public void AddBlock(string blockType, Vector3 blockPoint, Color blockColor) {
-    Block block = new Block(blockType, blockPoint, blockColor);
+  public void AddBlock(string blockType, Vector3 blockPoint, float blockRotation, Color blockColor) {
+    Block block = new Block(blockType, blockPoint, blockRotation, blockColor);
     blockList.Add(block);
     numberOfBlocks++;
-
-
-    /*
-    Vector3Serializer serBlockPoint = new Vector3Serializer();
-    serBlockPoint.Vector3_S = blockPoint;
-    if(vectorList.Contains(serBlockPoint)) {
-      int i = vectorList.IndexOf(serBlockPoint);
-      vectorList.RemoveAt(i);
-      colorList.RemoveAt(i);
-    }
-    vectorList.Add(new Vector3Serializer(blockPoint));
-    colorList.Add(new ColorSerializer(blockColor));
-    numberOfBlocks++;
-    */
 
     if(blockPoint.x < smallestX) {
       smallestX = blockPoint.x;
@@ -82,24 +59,13 @@ public class Ship {
 
   public bool DeleteBlock(Vector3 blockPoint) {
     for(int i = 0; i < blockList.Count; i++) {
-      if(blockList[i].BlockVector.Equals(blockPoint)) {
+      if(blockList[i].BlockPosition.Equals(blockPoint)) {
         blockList.RemoveAt(i);
         numberOfBlocks--;
         return true;
       }
     }
     return false;
-    /*
-    for(int i = 0; i < vectorList.Count; i++) {
-      if(vectorList[i].Vector3_S.Equals(blockPoint)) {
-        vectorList.RemoveAt(i);
-        colorList.RemoveAt(i);
-        numberOfBlocks--;
-        return true;
-      }
-    }
-    return false;
-    */
   }
 
   public Vector2 GetDimensions() {
