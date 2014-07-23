@@ -40,7 +40,6 @@ public class Toggle : MonoBehaviour {
 
 	void Update() {
     toggleClicked = false;
-    toggleActive = false;
 		if(Input.touchCount > 0 || Input.GetMouseButton(0)) { // mobile: if there are any touches get the raycast of the first touch
       Vector2 rayPosition;
 		  if(Input.touchCount > 0) {
@@ -62,7 +61,9 @@ public class Toggle : MonoBehaviour {
           theToggle.ToggleClicked = true;
 				}
 			}
-		}
+		} else {
+      toggleActive = false;
+    }
 	}
 	
 	// change button state to down

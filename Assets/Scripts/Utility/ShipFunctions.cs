@@ -14,6 +14,7 @@ public class ShipFunctions : MonoBehaviour {
       Block block = ship.blockList[i];
       newBlock.transform.localPosition = block.BlockPosition.Vector3_S;
       newBlock.transform.localRotation = Quaternion.AngleAxis(block.BlockRotation, Vector3.forward);
+      newBlock.GetComponent<BlockConnector>().RotateRight(block.BlockRotation);
       newBlock.GetComponent<SpriteRenderer>().color = block.BlockColor.Color_S;
       newBlock.transform.parent = newShip.transform;
     }
@@ -31,6 +32,7 @@ public class ShipFunctions : MonoBehaviour {
     newBlock.transform.localScale = Vector3.one;
     newBlock.transform.localPosition = new Vector3(blockPosition.x, blockPosition.y, blockPosition.z);
     newBlock.transform.localRotation = Quaternion.AngleAxis(blockRotation, Vector3.forward);
+    newBlock.GetComponent<BlockConnector>().RotateRight(blockRotation);
     newBlock.GetComponent<SpriteRenderer>().color = blockColor;
     
     return newBlock;
@@ -46,8 +48,24 @@ public class ShipFunctions : MonoBehaviour {
     
     return null;
   }
+  
+  public Dictionary<GameObject, Vector3> CheckBlocks(string objectTag, Vector3 screenPoint, List<Vector3> directions, float rayDistance) {
+    Dictionary<GameObject, Vector3> objectList = new Dictionary<GameObject, Vector3>();
 
-  public List<GameObject> CheckBlocks(string objectTag, Vector3 screenPoint, List<Vector3> directions, float rayDistance) {
+    Ray ray = Camera.main.ScreenPointToRay(screenPoint);
+    
+    for(int i = 0; i < directions.Count; i++) {
+      RaycastHit2D hit = Physics2D.Raycast(ray.origin, directions[i], rayDistance);
+      if(hit.collider != null && hit.collider.gameObject.tag.Equals(objectTag)) {
+        objectList.Add(hit.collider.gameObject, directions[i]);
+      }
+    }
+
+    return objectList;
+  }
+
+  /*
+    public List<GameObject> CheckBlocks(string objectTag, Vector3 screenPoint, List<Vector3> directions, float rayDistance) {
     List<GameObject> objectList = new List<GameObject>();
 
     Ray ray = Camera.main.ScreenPointToRay(screenPoint);
@@ -61,4 +79,5 @@ public class ShipFunctions : MonoBehaviour {
 
     return objectList;
   }
+   * */
 }

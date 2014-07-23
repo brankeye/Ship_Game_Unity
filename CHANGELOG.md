@@ -4,14 +4,20 @@
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-* v1.2.6 - Wednesday, July 16, 2014
-* added ability to rotate any selected block and place it on the ship. All ships save properly, rotated or not.
-* rotated blocks can currently be placed anywhere. Working on a fix.
-* added Debug Logs for tools in the Tool Handler so you know what happens when certain tools are used.
+* v1.2.7 - Wednesday, July 23, 2014
+* can now delete blocks from a saved ship.
+* regression in toggle button fixed.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### PAST VERSIONS ###
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+* v1.2.6 - Wednesday, July 16, 2014
+* added ability to rotate any selected block and place it on the ship. All ships save properly, rotated or not.
+* rotated blocks can currently be placed anywhere. Working on a fix.
+* added Debug Logs for tools in the Tool Handler so you know what happens when certain tools are used.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 

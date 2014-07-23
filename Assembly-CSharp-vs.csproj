@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\MoveObjectWithMouse.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Ship\Block.cs" />
+     <Compile Include="Assets\Scripts\Ship\BlockConnector.cs" />
      <Compile Include="Assets\Scripts\Ship\CreatePlayingShip.cs" />
      <Compile Include="Assets\Scripts\Ship\DisplayShip.cs" />
      <Compile Include="Assets\Scripts\Ship\Ship.cs" />

@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21200000}
   - 60: {fileID: 6000000}
   - 61: {fileID: 6100000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Block01
   m_TagString: Block
@@ -41,13 +42,14 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_Poly:
     m_Paths:
-    - - {x: .495314121, y: .484689236}
-      - {x: .297021389, y: .450484663}
-      - {x: .119835854, y: .341489941}
-      - {x: -.0241723061, y: -.0159190148}
-      - {x: .0625004768, y: -.262812346}
-      - {x: .3359375, y: -.484375}
-      - {x: .498437881, y: -.478437424}
+    - - {x: .0078125, y: -.1171875}
+      - {x: -.0382387452, y: .207443267}
+      - {x: -.197841614, y: .405525267}
+      - {x: -.5, y: .5}
+      - {x: -.5, y: -.5}
+      - {x: -.50389266, y: -.5}
+      - {x: -.160767555, y: -.399460793}
+      - {x: -.0339205265, y: -.191818237}
 --- !u!61 &6100000
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -59,6 +61,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa13182258f2814c9a92de06d652bca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connector: 00000001
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -149,19 +149,19 @@ public class ToolHandler : MonoBehaviour {
 
   void HandleTypeTool() {
     if(Input.GetKey(KeyCode.LeftShift)) {
-      if(Input.GetKey(KeyCode.Alpha1)) {
+      if(Input.GetKeyDown(KeyCode.Alpha1)) {
         Debug.Log("Selected quad block...");
         typeTool.SelectBlockType(0);
-      } else if(Input.GetKey(KeyCode.Alpha2)) {
+      } else if(Input.GetKeyDown(KeyCode.Alpha2)) {
         Debug.Log("Selected half-circle block...");
         typeTool.SelectBlockType(1);
-      } else if(Input.GetKey(KeyCode.Alpha3)) {
+      } else if(Input.GetKeyDown(KeyCode.Alpha3)) {
         Debug.Log("Selected right triangle block...");
         typeTool.SelectBlockType(2);
-      } else if(Input.GetKey(KeyCode.Alpha4)) {
+      } else if(Input.GetKeyDown(KeyCode.Alpha4)) {
         Debug.Log("Selected short triangle block...");
         typeTool.SelectBlockType(3);
-      } else if(Input.GetKey(KeyCode.Alpha5)) {
+      } else if(Input.GetKeyDown(KeyCode.Alpha5)) {
         Debug.Log("Selected long triangle block...");
         typeTool.SelectBlockType(4);
       } 

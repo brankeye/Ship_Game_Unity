@@ -11,10 +11,10 @@ public class WorkTool : MonoBehaviour {
 
   void Start() {
     raycastDirections = new List<Vector3>();
-    raycastDirections.Add(Vector3.left);
     raycastDirections.Add(Vector3.up);
     raycastDirections.Add(Vector3.right);
     raycastDirections.Add(Vector3.down);
+    raycastDirections.Add(Vector3.left);
 
     shipFunctions = gameObject.GetComponent<ShipFunctions>();
 
@@ -35,7 +35,7 @@ public class WorkTool : MonoBehaviour {
   public void AddBlock(GameObject shipObject, Ship theShip, string blockType, Vector2 rayPosition, float blockRotation, Color newBlockColor) {
     if(shipFunctions.CheckBlock("Block", rayPosition, Vector3.forward, theShip.shipScale) == null) {
       float shipObjectScale = shipObject.transform.localScale.x;
-      List<GameObject> blockList = shipFunctions.CheckBlocks("Block", rayPosition, raycastDirections, shipObjectScale);
+      Dictionary<GameObject, Vector3> blockList = shipFunctions.CheckBlocks("Block", rayPosition, raycastDirections, shipObjectScale);
       
       if(blockList.Count > 0) {
         Vector3 newBlockVector = Camera.main.ScreenToWorldPoint(rayPosition);
@@ -44,7 +44,16 @@ public class WorkTool : MonoBehaviour {
         newBlockVector = new Vector3(xPos, yPos, 1.0f);
 
         theShip.AddBlock(blockType, newBlockVector, blockRotation, newBlockColor);
-        shipFunctions.CreateBlock(shipObject, blockType, newBlockVector, blockRotation, newBlockColor);
+        GameObject newBlock = shipFunctions.CreateBlock(shipObject, blockType, newBlockVector, blockRotation, newBlockColor);
+
+        /*
+        bool blockConnectable = false;
+        foreach (GameObject block in blockList) {
+          Vector3 blockDirection = Vector3.zero;
+          blockList.TryGetValue(block, blockDirection);
+
+
+        }*/
       }
     }
   }

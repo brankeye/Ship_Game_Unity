@@ -59,7 +59,7 @@ public class Ship {
 
   public bool DeleteBlock(Vector3 blockPoint) {
     for(int i = 0; i < blockList.Count; i++) {
-      if(blockList[i].BlockPosition.Equals(blockPoint)) {
+      if(blockList[i].BlockPosition.Vector3_S == blockPoint) {
         blockList.RemoveAt(i);
         numberOfBlocks--;
         return true;
